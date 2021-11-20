@@ -17,7 +17,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 __version__ = None
 with open('pyledger/__init__.py') as f:
@@ -33,6 +33,7 @@ long_description = """
 .. image:: https://badge.fury.io/gh/guillemborrell%2Fpyledger.svg
     :target: https://badge.fury.io/gh/guillemborrell%2Fpyledger
 """
+exclude_dirs = ['docs', 'examples', 'tests']
 
 setup(name='pyledger',
       version=__version__,
@@ -40,7 +41,7 @@ setup(name='pyledger',
       long_description=long_description,
       author='Guillem Borrell',
       author_email='guillemborrell@gmail.com',
-      packages=['pyledger', 'pyledger'],
+      packages=find_packages('.', exclude=exclude_dirs),
       classifiers=[
           'Development Status :: 3 - Alpha',
           'Environment :: Console',
